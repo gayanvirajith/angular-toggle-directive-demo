@@ -1,7 +1,8 @@
 <div class="col-md-4 col-md-offset-4 panel" ng-click="toggleContent()">
     <div>{{ name }}</div>
     <div>{{ title }}</div>
-    <div ng-show="isContentVisible" ng-transclude>
+    <div ng-show="isContentVisible" ng-transclude class="toggle-view">
         daf
     </div>
 </div>
+<div id="backdrop" ng-show="isContentVisible" class="backdrop" ng-click="toggleContent()">{{isContentVisible}}</div>

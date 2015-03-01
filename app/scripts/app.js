@@ -14,6 +14,7 @@ app.controller('MainCtrl', function ($scope) {
 
 app.directive('account', function() {
 
+
     return {
         restrict: 'E',
         transclude: true,
@@ -22,10 +23,16 @@ app.directive('account', function() {
             title: '@'
         },
         templateUrl: 'views/zippy.directive.html',
-        link: function(scope){
-            scope.isContentVisible = false;
-            scope.toggleContent = function() {
-                scope.isContentVisible = ! scope.isContentVisible;
+        compile: function(tElem) {
+
+            return function(scope, element){
+                scope.isContentVisible = false;
+                scope.toggleContent = function() {
+                    scope.isContentVisible = ! scope.isContentVisible;
+                };
+                scope.hideAccount = function() {
+                    console.log("hide account...");
+                };
             }
         }
     }
